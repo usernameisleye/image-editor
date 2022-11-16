@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/d39106e7f3.js" crossorigin="anonymous"></script>
+</head>
+<!-- Tutor: @CodingNepal -->
+<body>
+    <main class="container">
+        <h2>Image Editor</h2>
+
+        <section class="content">
+            <div class="edit-filters">
+                <div class="filter">
+                    <label for="" class="title">Filters</label>
+                    <div class="buttons">
+                        <button class="clicked">Brightness</button>
+                        <button>Saturation</button>
+                        <button>Inversion</button>
+                        <button>Greyscale</button>
+                    </div>
+    
+                    <div class="slider">
+                        <div class="info">
+                            <p class="filter-name">Brightness</p>
+                            <p class="value">100%</p>
+                        </div>
+    
+                        <input type="range" min="0" max="200" value="100">
+                    </div>
+                </div>
+
+                <div class="orientation">
+                    <label for="" class="title">Orientation</label>
+
+                    <div class="buttons">
+                        <button>R-Left</button>
+                        <button>R-Right</button>
+                        <button>V-Flip</button>
+                        <button>H-Flip</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview">
+                <img src="/image-placeholder.svg" alt="preview-image">
+            </div>
+        </section>
+
+        <section class="controls">
+            <button class="reset-all">Reset All</button>
+
+            <div class="choose-save">
+                <button class="choose">Browse Image</button>
+                <button class="save">Save Image</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

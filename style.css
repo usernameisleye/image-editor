@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+button{
+    cursor: pointer;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #CAF0F8;
+}
+
+main{
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.content{
+    display: flex;
+    margin: 2rem 0;
+    min-height: 21rem;
+}
+
+.edit-filters{
+    border: 1px solid #CCC;
+    border-radius: .5rem;
+    width: 18rem;
+    padding: 1rem;
+}
+
+.title{
+    font-size: 1.2rem;    
+}
+
+.buttons{
+    display: grid;
+    gap: .2rem;
+    margin-top: .5rem;
+}
+
+.buttons button{
+    background-color: #fff;
+    border: 1px solid #CCC;
+    border-radius: .2rem;
+    color: #6C767D;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.buttons button:hover{
+    filter: brightness(95%);
+}
+
+.filter .buttons{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.filter button.clicked{
+    background: #219EBC;
+    color: #fff;
+    border-color: #8ECAE6;
+}
+
+.slider{
+    margin: 2rem 0;
+}
+
+.slider .info{
+    display: flex;
+    justify-content: space-between;
+    color: #6C767D;
+}
+
+.slider input{
+    width: 100%;
+    height: 5px;
+}
+
+.orientation .buttons{
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+} 
