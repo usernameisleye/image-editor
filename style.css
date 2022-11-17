@@ -5,8 +5,9 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
-button{
+button, input{
     cursor: pointer;
+    outline: none;
 }
 
 body{
@@ -21,10 +22,18 @@ main{
     background-color: #fff;
     padding: 1rem;
     border-radius: 1rem;
+    width: 55vw;
+    height: 77vh;
+}
+
+.disable :where(.edit-filters, .reset-all, .save){
+    pointer-events: none;
+    opacity: .7;
 }
 
 .content{
     display: flex;
+    gap: 1rem;
     margin: 2rem 0;
     min-height: 21rem;
 }
@@ -89,3 +98,51 @@ main{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(1, 1fr);
 } 
+
+.default{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.default img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.controls{
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls button{
+    padding: .7rem 1.4rem;
+    color: #fff;
+    background: #fff;
+    border-radius: .2rem;
+    text-transform: uppercase;
+}
+
+.controls button:hover{
+    filter: brightness(95%);
+}
+
+.controls .reset-all{
+    color: #6C767D;
+    border: #CCC solid 1px;
+}
+
+.controls .choose{
+    background: #6C767D;
+    border: 1px solid #CCC;
+}
+
+.controls .save{
+    background-color: #219EBC;
+    border: 1px solid #8ECAE6;
+}

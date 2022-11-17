@@ -12,7 +12,7 @@
 </head>
 <!-- Tutor: @CodingNepal -->
 <body>
-    <main class="container">
+    <main class="container ">
         <h2>Image Editor</h2>
 
         <section class="content">
@@ -20,10 +20,10 @@
                 <div class="filter">
                     <label for="" class="title">Filters</label>
                     <div class="buttons">
-                        <button class="clicked">Brightness</button>
-                        <button>Saturation</button>
-                        <button>Inversion</button>
-                        <button>Greyscale</button>
+                        <button id="brightness" class="clicked">Brightness</button>
+                        <button id="saturation">Saturation</button>
+                        <button id="inversion">Inversion</button>
+                        <button id="greyscale">Greyscale</button>
                     </div>
     
                     <div class="slider">
@@ -40,16 +40,16 @@
                     <label for="" class="title">Orientation</label>
 
                     <div class="buttons">
-                        <button>R-Left</button>
-                        <button>R-Right</button>
-                        <button>V-Flip</button>
-                        <button>H-Flip</button>
+                        <button id="left">R-Left</button>
+                        <button id="right">R-Right</button>
+                        <button id="vertical">V-Flip</button>
+                        <button id="horizontal">H-Flip</button>
                     </div>
                 </div>
             </div>
 
-            <div class="preview">
-                <img src="/image-placeholder.svg" alt="preview-image">
+            <div class="default">
+                <img src="/image-placeholder.svg" alt="preview-image" id="img">
             </div>
         </section>
 
@@ -57,6 +57,7 @@
             <button class="reset-all">Reset All</button>
 
             <div class="choose-save">
+                <input type="file" class="image-file" accept="Image/*" hidden>
                 <button class="choose">Browse Image</button>
                 <button class="save">Save Image</button>
             </div>
