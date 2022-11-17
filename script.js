@@ -1,3 +1,4 @@
+//selecting all buttons and files
 const imageFile = document.querySelector('.image-file');
 const chooseBtn = document.querySelector('.choose');
 const defaultImg = document.getElementById('img');
@@ -6,7 +7,10 @@ const filterName = document.querySelector('.filter-name');
 const sliderInput = document.querySelector('.slider input');
 const sliderValue = document.querySelector('.slider .value');
 const orientationBtns = document.querySelectorAll('.orientation button')
-const resetBtn = document.querySelector('.reset-all')
+const resetBtn = document.querySelector('.reset-all');
+const saveBtn = document.querySelector('.save');
+
+
 
 
 
@@ -15,7 +19,8 @@ const resetBtn = document.querySelector('.reset-all')
 chooseBtn.addEventListener('click', () => imageFile.click());
 imageFile.addEventListener('change', loadFile);
 sliderInput.addEventListener('input', changeValue);
-resetBtn.addEventListener('click', resetAll)
+resetBtn.addEventListener('click', resetAll);
+saveBtn.addEventListener('click', saveImage)
 
 let brightness = 100, saturation = 100, inversion = 0, greyscale = 0
 let rotation = 0, verticalFlip = 1, horizontalFlip = 1;
@@ -30,6 +35,7 @@ function loadFile(){
     //removing disable class when new inmage loads
     main = document.querySelector('main')
     defaultImg.addEventListener('load', () =>{
+        resetBtn.click()
         main.classList.remove('disable');
     })
 }
@@ -127,7 +133,39 @@ function resetAll(){
     //resetting all values to default
     brightness = 100, saturation = 100, inversion = 0, greyscale = 0
     rotation = 0, verticalFlip = 1, horizontalFlip = 1;
+    //selecting brightness button by default
+    filterBtns[0].click()
 
     //updating the default values into the updateImage function
     updateImage()
+}
+
+function saveImage(){
+    //creating canvas where image is going to be saved from
+    const canvas = document.createElement('canvas');
+    //getting a drawing context on the canvas
+    const drawCanvas = canvas.getContext('2d');
+
+    canvas.width = defaultImg.naturalWidth;
+    canvas.height = defaultImg.naturalHeight;
+
+    //applying image filter on canvas
+    drawCanvas.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${greyscale}% )`;
+    drawCanvas.translate(canvas.width / 2, canvas.height / 2);
+    drawCanvas.scale(horizontalFlip, verticalFlip)
+
+    //rotate canvas if rotaion is not 0...
+    if(rotation !== 0){
+        drawCanvas.rotate(rotation * Math.PI / 180);
+    }
+
+    //setting drawing specifics for canvas using .drawImage
+    drawCanvas.drawImage(defaultImg, -canvas.width / 2, -  canvas.height / 2, canvas.width, canvas.height);
+
+    //downloading file...
+    const a = document.createElement('a');
+    a.download = 'image.jpg';
+    //passing anchor tag href value to canva's data URL
+    a.href = canvas.toDataURL();
+    a.click();
 }
